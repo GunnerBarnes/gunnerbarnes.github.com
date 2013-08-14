@@ -1,13 +1,51 @@
 /* Custom container */
 .container-narrow {
   margin: 0 auto;
-  max-width: 700px; }
+  max-width: 960px; 
+  margin-top: 25px;
+}
 
 .container-narrow > hr {
   margin: 30px 0; }
+ 
+.column {
+	float: left;
+	display: inline;
+	margin: 0 10px;
+}
+ 
+.sidebar {
+	width: 220px;
+}
 
-.navbar .nav {
-  float: right; }
+  
+.mainarea {
+	width: 640px;
+	min-height: 600px;
+	border-left: 1px solid #ddd;
+	padding-top: 25px;
+	padding-left: 25px;
+}
+
+nav {
+	text-align: center;
+}
+
+nav h1 {
+	font-size: 32px;
+}
+
+nav h2 {
+	font-size: 22px;
+}
+
+.nav-ul {
+	margin: 0;
+}
+
+h3.category {
+	font-size: 17px;
+}
 
 /* posts index */
 .post > h3.title {
