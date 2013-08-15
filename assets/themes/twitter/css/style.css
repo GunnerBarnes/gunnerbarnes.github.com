@@ -1,11 +1,16 @@
 /* Custom container */
-.container-narrow {
+html, body {
+	height: 100%;
+}
+
+.container {
   margin: 0 auto;
   max-width: 960px; 
   margin-top: 25px;
+  position: relative;
 }
 
-.container-narrow > hr {
+.container > hr {
   margin: 30px 0; }
  
 .column {
@@ -45,6 +50,13 @@ nav h2 {
 
 h3.category {
 	font-size: 17px;
+}
+
+/* responsive layout for smaller screens */
+@media screen and (max-width: 720px) {
+	.container { width: auto;}
+	.column { float: none; margin: 0; }	
+	.mainarea { width: auto; border: none; }
 }
 
 /* posts index */
