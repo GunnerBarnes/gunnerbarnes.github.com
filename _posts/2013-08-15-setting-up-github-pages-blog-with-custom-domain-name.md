@@ -12,7 +12,7 @@ Setting up a Github Pages blog with a custom domain couldn't be easier. All you 
 
 I had purchased this domain a while ago when I first attempted to start blogging on Wordpress, so I had to first update my DNS settings to no longer point to my host's nameservers.
 
-In my case, I bought my domain from [Namecheap.com](http://namecheap.com) . However, because I had been using my host's nameservers, the Host Management option didn't appear in the sidebar. After updating my domain to use Namecheap's DNS, the Host Management option appeared right away. 
+In my case, I bought my domain from [Namecheap.com](http://namecheap.com). However, because I had been using my host's nameservers, the Host Management option didn't appear in the sidebar. After updating my domain to use Namecheap's DNS, the Host Management option appeared right away. 
 
 ![Namecheap's Host Management settings](/assets/images/host_management.png)
 
