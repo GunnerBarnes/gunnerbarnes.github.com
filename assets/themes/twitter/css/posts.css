@@ -1,9 +1,19 @@
 /* Styling for posts page */
-.content p {
-	margin-top: 30px;
-	margin-bottom: 8px;
+
+.page-header {
+	margin: 0;
+	padding: 0;
+}
+
+.content h3 {
+	margin: 20px 0 0 0;
 }
 
 .content img {
 	margin: 10px auto;
+}
+
+.post-full .date {
+	font-size: 11px;
+	font-weight: normal;
 }

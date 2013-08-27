@@ -3,9 +3,8 @@ layout: post
 title: "Objective-C Protocols and Delegates"
 description: ""
 category: 
-tags: []
+tags: [iOS, protocols, delegates, core data]
 ---
-#Objective-C Protocols and Delegates
 
 For the second time in this project, I'd been struggling with a core piece of functionality for the iPhone app I'm attempting to build. Last month, I spent three weeks trying to wrap my head around Core Data. This month, I've already spent an equivalent amount of time trying to figure out protocols and delegates, an important aspect of navigating between view controllers. Luckily, I found another great tutorial at [www.raywenderlich.com](http://www.raywenderlich.com/tutorials) that helped guide me through the concept. 
 

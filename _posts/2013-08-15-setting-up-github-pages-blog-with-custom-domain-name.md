@@ -3,7 +3,7 @@ layout: post
 title: "Setting up Github Pages blog with custom domain name"
 description: ""
 category: 
-tags: []
+tags: [jekyll, github, dns]
 ---
 After setting up a basic layout for this blog, I also wanted to set it up with my own domain. 
 Setting up a Github Pages blog with a custom domain couldn't be easier. All you need to do is :
