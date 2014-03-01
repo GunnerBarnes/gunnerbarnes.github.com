@@ -62,9 +62,11 @@ As you can see, I'm defining two methods, DidCancel and didAddContact, as my pro
 	@synthesize delegate;
 	
 	- (IBAction)cancel:(id)sender
-	{
-    	[self.delegate addContactViewControllerDidCancel:self];
-	}
+    {
+    
+        [self.delegate addContactViewControllerDidCancel:self];
+    
+    }
 
 	- (IBAction)done:(id)sender
 	{
@@ -82,7 +84,7 @@ As you can see, I'm defining two methods, DidCancel and didAddContact, as my pro
 	}
 	
 All we're doing here is defining what happens when each button is pushed. When the cancel button is touched, the line:
-	[self.delegate addContactViewControllerDidCancel:self];
+    \[self.delegate addContactViewControllerDidCancel:self\];
 tells my delegated class to call it's addContactViewControllerDidCancel method.
 
 In my case, I'm using Core Data and my AppDelegate class is handling my NSManagedObjectContext. So when the **done** button is touched, I'm creating a new NSManagedObjectContext here for my new contact, giving my new object the name and phone number values we've entered, and then passing that info to the didAddContact method of my delegated class.
