@@ -62,12 +62,12 @@ As you can see, I'm defining two methods, DidCancel and didAddContact, as my pro
 
 	@synthesize delegate;
 	
-	- (IBAction)cancel:(id)sender
+    - (IBAction)cancel:(id)sender
     {    
-        [self.delegate addContactViewControllerDidCancel:self];    
+        [self.delegate addContactViewControllerDidCancel:self];
     }
 
-	- (IBAction)done:(id)sender
+    - (IBAction)done:(id)sender
 	{
     	AppDelegate *appDelegate = 
     		[[UIApplication sharedApplication] delegate];
@@ -78,12 +78,14 @@ As you can see, I'm defining two methods, DidCancel and didAddContact, as my pro
 	    	initWithEntity:entity insertIntoManagedObjectContext:context];
     	info.name = self.nameTextField.text;
     	info.phone = self.phoneTextField.text;
-    	
-        	[self.delegate addContactViewController:self didAddContact:info];
+
+        [self.delegate addContactViewController:self didAddContact:info];
 	}
 	
 All we're doing here is defining what happens when each button is pushed. When the cancel button is touched, the line:
-    \[self.delegate addContactViewControllerDidCancel:self\];
+
+    [self.delegate addContactViewControllerDidCancel:self];
+    
 tells my delegated class to call it's addContactViewControllerDidCancel method.
 
 In my case, I'm using Core Data and my AppDelegate class is handling my NSManagedObjectContext. So when the **done** button is touched, I'm creating a new NSManagedObjectContext here for my new contact, giving my new object the name and phone number values we've entered, and then passing that info to the didAddContact method of my delegated class.
@@ -99,25 +101,25 @@ The **MasterViewController.h** file only requires two small changes:
 		<AddContactViewControllerDelegate>
 All we're doing here is importing the header file for the AddContactViewController class, and declaring this class to be a delegate for AddContactViewController. Now all we have left is the implementation of the two methods we defined in our protocol.
 
-	#pragma mark AddContactViewControllerDelegate
+    #pragma mark AddContactViewControllerDelegate
 
-	- (void)addContactViewControllerDidCancel:
-		(AddContactViewController *)controller
-	{
-    	[self dismissViewControllerAnimated:YES completion:nil];
-	}
+    - (void)addContactViewControllerDidCancel:
+    	(AddContactViewController *)controller
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 
-	- (void)addContactViewController:
+    - (void)addContactViewController:
 		(AddContactViewController *)controller 
 		didAddContact:(ContactInfo *)newContact
 	{
     	NSError *error;
-    	if (![self.managedObjectContext save:&error])
+    	if (! [ self.managedObjectContext save:&error ] )
     	{
         		NSLog(@"Couldn't save newly created contact. Error: %@", error);
         		abort();
     	}
-    	[self dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
 	}
 
 Now, if the **cancel** button is touched, the AddContactViewController is just dismissed. If the **done** button is touched, we save our new contact and dismiss the AddContactViewController. 
