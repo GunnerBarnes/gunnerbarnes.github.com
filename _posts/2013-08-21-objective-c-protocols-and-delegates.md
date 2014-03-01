@@ -19,33 +19,34 @@ The class that is implementing the methods declared in the protocol (therefore, 
 In my currently-in-progress contact management app, I have two views that are responsible for displaying and creating a list of contacts. My MasterViewController is just a UITableViewController that lists all of my contacts, and my AddContactViewController is where new contacts are created. There is a button on the MasterViewController to add a new contact, and there are two buttons on the AddContactViewController, to cancel creating the new contact, and to save the new contact we're creating. My AddContactViewController knows nothing about the data that is displayed in my MasterViewController, nor should it need to. This is why I'm going to use delegation to handle the creation of new contacts.
 
 ###AddContactViewController
+
 Here is my **AddContactViewController.h** file, where we define the protocol:
 
-	#import "ContactInfo.h"
-	
-	@class AddContactViewController;
-	
-	@protocol AddContactViewControllerDelegate <NSObject>
-	
-	- (void)addContactViewControllerDidCancel:
-		(AddContactViewController *)controller;
-	- (void)addContactViewController:(AddContactViewController *) controller
-		 didAddContact:(ContactInfo *)newContact;
-	
-	@end
-	
-	@interface AddContactViewController : 
-		UITableViewController <UITableViewDelegate>
-	@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-	@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
-	
-	@property (weak, nonatomic) id 
-		<AddContactViewControllerDelegate> delegate;
-	
-	- (IBAction)cancel:(id)sender;
-	- (IBAction)done:(id)sender;
-	
-	@end
+    #import "ContactInfo.h"
+    
+    @class AddContactViewController;
+    
+    @protocol AddContactViewControllerDelegate <NSObject>
+    
+    - (void)addContactViewControllerDidCancel:
+	    (AddContactViewController *)controller;
+    - (void)addContactViewController:(AddContactViewController *) controller
+    	 didAddContact:(ContactInfo *)newContact;
+    
+    @end
+    
+    @interface AddContactViewController : 
+        UITableViewController <UITableViewDelegate>
+    @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+    @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
+    
+    @property (weak, nonatomic) id 
+    	<AddContactViewControllerDelegate> delegate;
+    
+    - (IBAction)cancel:(id)sender;
+    - (IBAction)done:(id)sender;
+    
+    @end
 
 As you can see, I'm defining two methods, DidCancel and didAddContact, as my protocol. My ContactInfo class is just a simple definition of a contact with a name and phone number. We have two text fields for adding the name and phone number of our new contact, and our two buttons for either canceling or saving. Now let's take a look at the implementation file, **AddContactViewController.m**, where I'm defining what happens when we push either button.
 
@@ -62,10 +63,8 @@ As you can see, I'm defining two methods, DidCancel and didAddContact, as my pro
 	@synthesize delegate;
 	
 	- (IBAction)cancel:(id)sender
-    {
-    
-        [self.delegate addContactViewControllerDidCancel:self];
-    
+    {    
+        [self.delegate addContactViewControllerDidCancel:self];    
     }
 
 	- (IBAction)done:(id)sender
