@@ -3,7 +3,7 @@ layout: post
 title: "Transact SQL shorthand JOIN operators"
 description: ""
 category: 
-tags: []
+tags: [T-SQL, SQL]
 ---
 
 
