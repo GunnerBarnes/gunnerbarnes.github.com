@@ -22,8 +22,7 @@ html, body {
 .sidebar {
 	width: 220px;
 }
-
-  
+ 
 .mainarea {
 	width: 640px;
 	min-height: 600px;
@@ -46,6 +45,10 @@ nav h2 {
 
 .nav-ul {
 	margin: 0;
+}
+
+.nav-ul li {
+  text-decoration: none;
 }
 
 h3.category {
