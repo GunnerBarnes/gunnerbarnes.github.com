@@ -17,9 +17,8 @@ tagline: posts about running
 <h3 class="category">Running Log</h3>
 
 <ul class="posts">
-  {% for post in site.categories.runlog %}
+  {% for post in site.categories.runlog limit:10%}
     <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
+  <a href="{{ BASE_PATH }}/running/traininglog">view more</a><hr/>
 </ul>
-
-
